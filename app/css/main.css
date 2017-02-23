@@ -1,0 +1,29 @@
+body {
+  padding-top: 30px; }
+
+.login-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .login-form input {
+    margin-bottom: 10px; }
+  .login-form .password {
+    position: relative;
+    width: 100%; }
+    .login-form .password span.strength {
+      position: absolute;
+      right: 12px;
+      top: 5.5px;
+      font-size: 15px; }
+
+input.invalid {
+  border-color: #ebccd1;
+  background-color: #fef4f4; }

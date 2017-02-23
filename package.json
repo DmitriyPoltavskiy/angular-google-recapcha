@@ -1,0 +1,38 @@
+{
+  "name": "unit-tests-angular",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmitriyPoltavskiy/Unit-tests-AngularJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DmitriyPoltavskiy/Unit-tests-AngularJS/issues"
+  },
+  "homepage": "https://github.com/DmitriyPoltavskiy/Unit-tests-AngularJS#readme",
+  "description": "",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-recaptcha": "^4.0.3",
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.6.2",
+    "eslint": "^3.14.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-csso": "^2.0.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-if": "^2.0.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-server-livereload": "^1.9.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-useref": "^3.1.2"
+  }
+}

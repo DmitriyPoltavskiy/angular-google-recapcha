@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>ReCaptcha</title>
+	<!-- build:css css/vendor.css -->
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<!-- endbuild -->
+	<!-- build:css css/main.min.css -->
+	<link rel="stylesheet" type="text/css" href="app/css/main.css">
+	<!-- endbuild -->
+</head>
+<body ng-cloak>
+	<div class="container" ng-controller="testCtrl">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div 
+					ng-class="{
+						'panel-success': strength === 'strong',
+						'panel-default': strength === 'medium' || strength === '',
+						'panel-danger': strength === 'weak' || (login.email.$invalid && login.email.$touched)
+					}" 
+					class="panel">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							{{ title }}
+						</h3>
+					</div>
+					<div class="panel-body">
+						<form 
+							ng-submit="submit()" 
+							name="login" 
+							class="login-form">
+							<input 
+								type="email"
+								name="email" 
+								class="form-control"
+								required="required"
+								maxlength="36"
+								ng-model="email"
+								ng-class="{
+									'invalid': login.email.$invalid && login.email.$touched
+								}"
+								placeholder="Email" >
+							<div class="password">
+								<input 
+									type="password"
+									name="password" 
+									ng-model='password'
+									ng-class="{
+										'invalid': strength === 'weak' || (login.password.$invalid && login.password.$touched)
+									}"
+									ng-change="checkPassword()"
+									placeholder="Password"
+									maxlength="24"
+									required="required"
+									class="form-control">	
+								<span 
+									class="label strength"
+									ng-class="{
+										'label-success': strength === 'strong',
+										'label-default': strength === 'medium',
+										'label-danger': strength === 'weak'
+									}" 
+									ng-show="strength">
+									{{ strength }}
+								</span>
+							</div>
+							<button 
+								class="btn btn-primary"
+								ng-click="submit()"
+								ng-disabled="
+									login.email.$invalid || 
+									!login.email.$dirty || 
+									login.password.$invalid || 
+									!login.password.$dirty || 
+									!response || 
+									(strength === 'weak')">
+								Login
+							</button>
+							<div
+								vc-recaptcha
+								theme="light"
+								key="model.key"
+								on-success="setResponse(response)"
+								on-expire="cbExpiration()"
+								class="re-captcha">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- build:js scripts/vendor.js -->
+	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="node_modules/angular-recaptcha/release/angular-recaptcha.min.js"></script>
+	<!-- endbuild -->
+	<!-- build:js scripts/main.min.js -->
+	<script type="text/javascript" src="app/js/app.js"></script>
+	<!-- endbuild -->
+</body>
+</html>

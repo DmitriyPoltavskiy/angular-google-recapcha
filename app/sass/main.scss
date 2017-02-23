@@ -1,0 +1,35 @@
+body {
+	padding-top: 30px;
+}
+.re-captcha {
+	// margin: 15px 0;
+	// float: right;
+}
+
+.login-form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	input {
+		margin-bottom: 10px;
+	}
+	.password {
+		position: relative;
+		width: 100%;
+		span.strength {
+			position: absolute;
+			// left: 110%;
+			right: 12px;
+			top: 5.5px;
+			font-size: 15px;
+		}
+	}
+}
+
+input {
+	&.invalid {
+		border-color: #ebccd1;
+		background-color: #fef4f4;
+	}
+}
